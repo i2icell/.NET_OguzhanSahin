@@ -1,0 +1,63 @@
+﻿
+
+
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="rounded content-form col-sm-5 ">
+    <form>
+        <div class="form-group">
+            <label for="phone_no">Telefon Numarası</label>
+            <input id="phonenum" type="tel" pattern="^\d{4} \d{3} \d{2} \d{2}$" required class="form-control"  placeholder="5XX XXX XX XX">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Şifreniz</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" required class="form-control"  placeholder="Şifreniz">
+        </div>
+        <div class="text-center">
+            <input type="button" class="buton" id="giris" onclick="GirisDeneme()" value="Giris">
+            <a href="@Url.Action("NewPassword","Home")"><input type="button" class="buton" name="giris" id="giris" value="Şifremi Unuttum"></a></
+
+        </div>
+
+
+
+
+
+    </form>
+    <br><br>
+    <div class="new-member text-center">
+        <span class="text-center">Üye Değil Misiniz?</span><br><br>
+        <asp:button type="button" class="btn btn-light"><a href="@Url.Action("SignUp","Home")">Yeni Hesap Açın</a></asp:button>
+    </div>
+</div>
+
+<script>
+   
+    function GirisDeneme() {
+            
+        
+
+        if (document.getElementById("phonenum").value == "5317719091" && document.getElementById("exampleInputPassword1").value == "123123") {
+
+
+            alert("Başarıyla Giriş Yaptınız");
+
+        }
+        else {
+
+            alert("Kullanıcı adı veya şifte hatalı");
+
+        }
+
+        
+  
+    }
+
+    
+</script>
+
+ 
+ 
