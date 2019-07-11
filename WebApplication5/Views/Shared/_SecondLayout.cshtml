@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -8,19 +9,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <style>
         /* Remove the navbar's default margin-bottom and rounded borders */
-
-        html {
-            height: 100%;
-            width: 100%;
-        }
-
-        body {
-            min-height: 100%;
-        }
 
 
         .navbar {
@@ -44,7 +39,6 @@
             padding-top: 20px;
             background-color: #41ACE4;
             height: 100%;
-            
         }
 
         /* Set black background color, white text and some padding */
@@ -96,10 +90,10 @@
             </div>
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <li><a href="@Url.Action("Index","Home")">Anasayfa</a></li>
+                    <li><a href="#">Anasayfa</a></li>
                     <li><a href="#">Paketler</a></li>
                     <li><a href="#">Hakkımızda</a></li>
-                    <li><a href="@Url.Action("Index","Home")" >Çıkış</a></li>
+                    <li><a href="@Url.Action("Index","Home")">Giriş</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><img src="https://a.icons8.com/TtfefVqX/3UxC4m/oval.png" width="64px" height="64px"></li>

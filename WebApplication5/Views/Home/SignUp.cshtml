@@ -1,161 +1,69 @@
-﻿
+﻿@model WebApplication5.Models.SignUp
+
 @{
     ViewData["Title"] = "SignUp";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="rounded content-form col-sm-5 ">
-    <form>
+    
+    
+    <form asp-controller="Home" asp-action="SignUp" method="post">
 
 
-
-        <div class="form-group">
-            <label for="tckimlik_no">TC Kimlik No</label>
-            <input id="tckimlik_no" type="number" pattern="^\d{4} \d{3} \d{2} \d{2}$" required class="form-control">
-        </div>
         <div class="form-group">
             <label for="name">Adınız</label>
-            <input id="name" type="text" pattern="^\d{4} \d{3} \d{2} \d{2}$" required class="form-control">
+
+            <input type="text" asp-for="Firstname" required class="form-control">
         </div>
 
         <div class="form-group">
             <label for="name">Soyadınız</label>
-            <input id="soyad" type="text" pattern="^\d{4} \d{3} \d{2} \d{2}$" required class="form-control">
+            <input type="text" asp-for="Lastname" required class="form-control">
         </div>
 
         <div class="form-group">
-            <label for="name">Doğum Tarihiniz</label>
-            <input type="date" name="dogumtarihi" pattern="^\d{4} \d{3} \d{2} \d{2}$" required class="form-control" />    
+            <label for="phone_no">Telefon Numarası</label>
+            <input asp-for="Phonenum" type="text" pattern="^\d{10}$" required class="form-control">
         </div>
 
         <div class="form-group">
 
             <label for="email">E-mail</label>
-            <input type="email" name="email" pattern="^\d{4} \d{3} \d{2} \d{2}$" required class="form-control" /> 
+            <input type="email" asp-for="Email" required class="form-control" />
 
         </div>
+
 
         <div class="form-group">
-            <label for="phone_no">Telefon Numarası</label>
-            <input id="phonenum" type="tel" pattern="^\d{4} \d{3} \d{2} \d{2}$" required class="form-control" id="phone_no">
-        </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">Şifreniz</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Şifreniz">
+            <label for="password">Şifreniz</label>
+            <input type="password" class="form-control" asp-for="Password" minlength="8" maxlength="12"  placeholder="Şifreniz" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
         </div>
 
+
+
+        <div class="form-group">
+            <label for="name">Doğum Tarihiniz</label>
+            <input type="date" format="dd-mm-yyyy"asp-for="Dogumtarihi" required class="form-control" />
+        </div>
+
+
+
+        <div class="form-group">
+            <label for="tckimlik_no">TC Kimlik No</label>
+            <input asp-for="Tckimlik_no" type="number" pattern="^\d{11}$" required class="form-control">
+        </div>
+
+
+        <div class="text-center">
+
+            <input type="submit" class="btn btn-primary btn-lg" value="Kaydet" />
+
+        </div>
 
     </form>
-    <div class="new-member text-center">
 
-        <input type="button" class="buton" id="kaydet" onclick="KaydetDeneme()" value="Kaydet">
-
-    </div>
 </div>
 
-<script>
-
-    function KaydetDeneme() {
-        
-
-        if (CheckPhoneNumberConditions() && CheckingPasswordCondition()) {
-
-            alert("Kaydınız oluşturulmuştur");
-        }
-
-        else {
-
-            alert("Lütfen koşulları gözden geçiriniz.");
-        }
-
-       
-
-        
-
-        
-     }
 
 
-    function CheckPhoneNumberConditions() {
-
-        if (document.getElementById("phonenum").value.startsWith("5") && document.getElementById("phonenum").value.length == 10) {
-
-            return true;
-            
-        }
-        else {
-
-            return true;
-            
-        }
-
-    }
-        function CheckingPasswordCondition() {
-
-
-            if (document.getElementById("exampleInputPassword1").value.length >= 8 && document.getElementById("exampleInputPassword1").value.length <= 12) {
-
-                return true;
-            }
-
-            else {
-
-                return false; 
-
-            }
-        }
-
-
-
-    
-        
-
-
-
-     
-
-
-    
-        /*var lengthofpassword = document.getElementById("exampleInputPassword1").value.length;
-        var charofpassword = [];
-
-        var i;
-        for (i = 0; i < lengthofpassword; i++) {
-
-            if (document.getElementById("exampleInputPassword1").value.charAt(i) == Character.
-        }
-        
-        
-    }
-    
-   private boolean passwordOtherValid(String loginPassword){
-        int passLength = (String.valueOf(loginPassword).length());
-        int[] passChar = new int[passLength];
-
-        for (int a = 0; a < passLength; a++) {
-
-            if (loginPassword.charAt(a) == Character.toUpperCase(loginPassword.charAt(a))) {
-                upperCount += 1;
-            }
-
-            if (loginPassword.charAt(a) == Character.toLowerCase(loginPassword.charAt(a))) {
-                lowerCount += 1;
-            }
-            if (Character.isDigit(loginPassword.charAt(a))) {
-                digitCount += 1;
-            }
-
-        }
-        if ((upperCount > 0) && (lowerCount > 0) && (digitCount > 0)) {
-            return true;
-        }
-
-        else return false;
-    }
-    
-    */
-
-
-
-</script>
-   

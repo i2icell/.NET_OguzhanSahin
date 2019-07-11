@@ -28,6 +28,10 @@ namespace WebService
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Threading.Tasks.Task<WebService.loginResponse> loginAsync(WebService.loginRequest request);
         
+        [System.ServiceModel.OperationContractAttribute(Action="urn:showProfile", ReplyAction="urn:showProfileResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Threading.Tasks.Task<WebService.showProfileResponse> showProfileAsync(WebService.showProfileRequest request);
+        
         [System.ServiceModel.OperationContractAttribute(Action="urn:changePassword", ReplyAction="urn:changePasswordResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Threading.Tasks.Task<WebService.changePasswordResponse> changePasswordAsync(WebService.changePasswordRequest request);
@@ -63,13 +67,13 @@ namespace WebService
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ServicesPackage", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute("return")]
-        public int[] @return;
+        public double[] @return;
         
         public getBalancesResponse()
         {
         }
         
-        public getBalancesResponse(int[] @return)
+        public getBalancesResponse(double[] @return)
         {
             this.@return = @return;
         }
@@ -107,13 +111,14 @@ namespace WebService
         public string inputBirthDate;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ServicesPackage", Order=6)]
-        public double inputTcNumber;
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string inputTcNumber;
         
         public createAccountRequest()
         {
         }
         
-        public createAccountRequest(string inputFirstName, string inputLastName, string inputPhoneNumber, string inputEmail, string inputPassword, string inputBirthDate, double inputTcNumber)
+        public createAccountRequest(string inputFirstName, string inputLastName, string inputPhoneNumber, string inputEmail, string inputPassword, string inputBirthDate, string inputTcNumber)
         {
             this.inputFirstName = inputFirstName;
             this.inputLastName = inputLastName;
@@ -194,6 +199,48 @@ namespace WebService
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="showProfile", WrapperNamespace="http://ServicesPackage", IsWrapped=true)]
+    public partial class showProfileRequest
+    {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ServicesPackage", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string inputPhoneNumber;
+        
+        public showProfileRequest()
+        {
+        }
+        
+        public showProfileRequest(string inputPhoneNumber)
+        {
+            this.inputPhoneNumber = inputPhoneNumber;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="showProfileResponse", WrapperNamespace="http://ServicesPackage", IsWrapped=true)]
+    public partial class showProfileResponse
+    {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ServicesPackage", Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("return", IsNullable=true)]
+        public string[] @return;
+        
+        public showProfileResponse()
+        {
+        }
+        
+        public showProfileResponse(string[] @return)
+        {
+            this.@return = @return;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("dotnet-svcutil", "1.0.0.1")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(WrapperName="changePassword", WrapperNamespace="http://ServicesPackage", IsWrapped=true)]
     public partial class changePasswordRequest
     {
@@ -203,7 +250,8 @@ namespace WebService
         public string inputPhoneNumber;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ServicesPackage", Order=1)]
-        public double inputTcNumber;
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public string inputTcNumber;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://ServicesPackage", Order=2)]
         [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
@@ -213,7 +261,7 @@ namespace WebService
         {
         }
         
-        public changePasswordRequest(string inputPhoneNumber, double inputTcNumber, string inputNewPassword)
+        public changePasswordRequest(string inputPhoneNumber, string inputTcNumber, string inputNewPassword)
         {
             this.inputPhoneNumber = inputPhoneNumber;
             this.inputTcNumber = inputTcNumber;
@@ -303,7 +351,7 @@ namespace WebService
             return base.Channel.createAccountAsync(request);
         }
         
-        public System.Threading.Tasks.Task<WebService.createAccountResponse> createAccountAsync(string inputFirstName, string inputLastName, string inputPhoneNumber, string inputEmail, string inputPassword, string inputBirthDate, double inputTcNumber)
+        public System.Threading.Tasks.Task<WebService.createAccountResponse> createAccountAsync(string inputFirstName, string inputLastName, string inputPhoneNumber, string inputEmail, string inputPassword, string inputBirthDate, string inputTcNumber)
         {
             WebService.createAccountRequest inValue = new WebService.createAccountRequest();
             inValue.inputFirstName = inputFirstName;
@@ -331,12 +379,25 @@ namespace WebService
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<WebService.showProfileResponse> WebService.ServicesPortType.showProfileAsync(WebService.showProfileRequest request)
+        {
+            return base.Channel.showProfileAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<WebService.showProfileResponse> showProfileAsync(string inputPhoneNumber)
+        {
+            WebService.showProfileRequest inValue = new WebService.showProfileRequest();
+            inValue.inputPhoneNumber = inputPhoneNumber;
+            return ((WebService.ServicesPortType)(this)).showProfileAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
         System.Threading.Tasks.Task<WebService.changePasswordResponse> WebService.ServicesPortType.changePasswordAsync(WebService.changePasswordRequest request)
         {
             return base.Channel.changePasswordAsync(request);
         }
         
-        public System.Threading.Tasks.Task<WebService.changePasswordResponse> changePasswordAsync(string inputPhoneNumber, double inputTcNumber, string inputNewPassword)
+        public System.Threading.Tasks.Task<WebService.changePasswordResponse> changePasswordAsync(string inputPhoneNumber, string inputTcNumber, string inputNewPassword)
         {
             WebService.changePasswordRequest inValue = new WebService.changePasswordRequest();
             inValue.inputPhoneNumber = inputPhoneNumber;

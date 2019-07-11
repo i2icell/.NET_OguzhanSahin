@@ -56,7 +56,7 @@ namespace WebApplication5
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=SignUp}/{id?}");
+                    template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }
