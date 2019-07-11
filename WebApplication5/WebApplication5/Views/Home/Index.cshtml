@@ -1,0 +1,41 @@
+﻿
+@model WebApplication5.Models.Index
+
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="rounded content-form col-sm-5 ">
+    <form asp-controller="Home" asp-action="Index" method="post">
+        <div class="form-group">
+            <label for="phone_no">Telefon Numarası</label>
+            <input type="text" asp-for="Phone_number"  pattern="^\d{10}$" required class="form-control"  placeholder="5XX XXX XX XX">
+        </div>
+        
+        <div class="form-group">
+            <label for="Password">Şifreniz</label>
+            <input type="password" class="form-control"  asp-for="Password"  required  placeholder="Şifreniz">
+        </div>
+       
+        <div class="text-center">
+            
+            <input type="submit" class="btn btn-primary btn-lg" value="Giriş" />
+            <a asp-controller="Home" asp-action="NewPassword" class="btn btn-primary btn-lg" method="post">Şifremi Unuttum</a>
+
+        </div>
+
+    </form>
+
+
+    <br><br>
+        <div class="new-member text-center">
+            <span class="text-center">Üye Değil Misiniz?</span><br><br>
+            <a asp-controller="Home" asp-action="SignUp" class="btn btn-primary btn-lg"  mmethod="post">Yeni Hesap</a>
+
+        </div>
+</div>
+
+
+ 
+ 

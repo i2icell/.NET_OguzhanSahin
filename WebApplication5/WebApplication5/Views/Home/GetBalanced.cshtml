@@ -1,0 +1,98 @@
+﻿@model WebApplication5.Models.GetBalanced
+
+
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+    <style>
+
+
+        .example-two {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid #0B7BE9;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+
+    
+
+        <div class="col-sm-2 col-margin" style="padding-top:200px;">
+            <span style="text-align:right;padding-left:40px;">GB</span>
+            <li>
+
+                <img src="https://a.icons8.com/Szdimmor/vRV4Io/icons8_internet_1px.png" width="40px;" height="40px; " />
+
+            </li>
+            <div class="example-two">
+                
+                <br />
+                <br />
+                <label asp-for="Internet">@Model.Internet</label>
+
+
+                <br />
+
+            </div>
+        </div>
+
+        <div></div>
+
+
+        <div class="col-sm-2 col-margin" style=" padding-top:200px;">
+            <span style="text-align:right !important;padding-left:30px;">Dakika</span>
+
+
+            <li>
+
+                <img src="https://a.icons8.com/Szdimmor/n1Ioh0/icons8_ringer_volume.png" width="40px;" height="40px; " />
+
+            </li>
+
+            <div class="example-two">
+                <br />
+                <br />
+                <label asp-for="Dakika">@Model.Dakika</label>
+
+
+                <br />
+
+            </div>
+        </div>
+
+
+        <div class="col-sm-2 col-margin" style="padding-top:200px;">
+            <span style="text-align:right !important; padding-left:30px;">Sms</span>
+            <li>
+
+                <img src="https://a.icons8.com/Szdimmor/BEYDHh/icons8_message_fille.png" width="40px;" height="40px; " />
+
+            </li>
+            <div class="example-two">
+                <br />
+                <br />
+                <label asp-for="Sms">@Model.Sms</label>
+
+                <br />
+
+            </div>
+        </div>
+
+      
+</body>
+</html>
